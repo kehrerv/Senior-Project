@@ -1,5 +1,4 @@
 #include<iostream>
-#include<cv.h>
 
 
 int main(){
