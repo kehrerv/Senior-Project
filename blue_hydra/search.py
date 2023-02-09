@@ -7,16 +7,8 @@ import os
 #opens file to read "r"
 with open(r"blue_hydra_rssi.log", "r") as file:
 
-
+    #user enters the target's mac address here
     x = input("Enter target Mac address: ")
-
-    def lineCount(x):
-        for x in enumerate(file):
-            if x in line:
-                print ("Line #: ", i)
-                return i
-        return -1
-
 
 
 
@@ -26,11 +18,6 @@ with open(r"blue_hydra_rssi.log", "r") as file:
     content = file.read() #reads from a particular line from []
     characterNum = len(content)
         
-
-    #print("number of characters: ", characterNum)
-    
-    
-
 
     #line counter
     line_num = 0
@@ -42,20 +29,19 @@ with open(r"blue_hydra_rssi.log", "r") as file:
 
     #turning the file into a list
     data_into_list = content.split("\n")
-    #searched = content.find(x)
-    #second = searched+1
-    #print("Target index at: ",searched)
-    #print("Second index at: ",second)
-    #print(data_into_list.index[x])
+    #iterates through each index
     for i in data_into_list:
-        if x in i:
-            word=str(i)
-            word = word.split(" ")
-            rssi = word[3] 
+        #searches if the target is in one of these indexes
+        if x in i: 
+            word=str(i) #converts the specified index into a string
+            word = word.split(" ") #separates the line into the 4 indexes
+            rssi = word[3] #rssi is stored at index 3
             
-            print("MAC Address: ",word[2])
+            print("MAC Address: ",word[2]) #mac address is stored at index 2
             print("RSSI: ",rssi)
-
+            
+            #task: 
+            #find a way to have mac address print only one time with maybe an if statement since it currently prints as many times as it finds a new rssi
 
 #-------------------------------------
 
