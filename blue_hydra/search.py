@@ -13,9 +13,8 @@ with open(r"blue_hydra_rssi.log", "r") as file:
 
 
     #reads all the content from the file
-    #content = file.readlines()[10] #reads from a particular line from []
     
-    content = file.read() #reads from a particular line from []
+    content = file.read() #reads from a particular line if using []
     characterNum = len(content)
         
 
@@ -37,11 +36,16 @@ with open(r"blue_hydra_rssi.log", "r") as file:
             word = word.split(" ") #separates the line into the 4 indexes
             rssi = word[3] #rssi is stored at index 3
             
-            print("MAC Address: ",word[2]) #mac address is stored at index 2
             print("RSSI: ",rssi)
             
-            #task: 
-            #find a way to have mac address print only one time with maybe an if statement since it currently prints as many times as it finds a new rssi
+    #prints the MAC address only once if found 
+    for b in data_into_list:
+        if x in b:
+            print("MAC Address: ",word[2]) #mac address is stored at index 2
+            break
+
+
+
 
 #-------------------------------------
 
