@@ -1,11 +1,14 @@
-#!usr/bin/env python
+#!usr/bin/env python3
 import os
 
 
-
+#while(repeat==true):
 
 #opens file to read "r"
 with open(r"blue_hydra_rssi.log", "r") as file:
+
+#def myFunction():
+    #file = open("blue_hydra_rssi.log","r")
 
     #user enters the target's mac address here
     x = input("Enter target Mac address: ")
@@ -24,6 +27,7 @@ with open(r"blue_hydra_rssi.log", "r") as file:
         line_num += 1
         if line.find(x) >= 0:
             print ("line number: ",line_num)
+
 #--------------------------------------
 
     #turning the file into a list
@@ -54,19 +58,14 @@ with open(r"blue_hydra_rssi.log", "r") as file:
         print("SEARCH FOUND!") 
         
 
-        '''
-        one, two, mac, rssi = x.split()
-        print("one: ", one)
-        print("two: ", two
-        print("BT MAC: ", mac)
-        print("RSSI: ", rssi)
-        
-        print("Selected line content: ", content)
-        print("input: ",x)'''
     else:
         print("SEARCH NOT FOUND!")
     
-    
+    #file.close()
+    #repeat=false
+
+
+
 
     
 
