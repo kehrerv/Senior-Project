@@ -1,9 +1,13 @@
 #!/bin/bash
-/home/vnkehrer/Documents/SeniorProject/blue_hydra/search.py
+python /home/vnkehrer/Documents/SeniorProject/blue_hydra/search.py
 
-while:
+while :
 do
-	python >> blue_hydra_rssi.log 2>%1
+
+	date +"%D %r"
+	#date +"%r"
+	echo "loop"
+	python search.py >> blue_hydra_rssi.log >%1
 
 	sleep 2
 done
