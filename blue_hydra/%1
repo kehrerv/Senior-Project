@@ -1,1 +1,8 @@
-Enter target Mac address: 
+Traceback (most recent call last):
+  File "/home/vnkehrer/Documents/SeniorProject/blue_hydra/search.py", line 14, in <module>
+    x = input("Enter target Mac address: ")
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/vnkehrer/Documents/SeniorProject/blue_hydra/search.py", line 14, in <module>
+    x = input("Enter target Mac address: ")
+KeyboardInterrupt

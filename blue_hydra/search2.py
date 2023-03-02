@@ -3,9 +3,10 @@ import os
 
 
 #while(repeat==true):
-x = input("Enter Target MAC adress: ")
+#x = input("Enter Target MAC adress: ")
 #opens file to read "r"
-with open(r"blue_hydra_rssi.log", "r") as file:
+def search(x):
+    file = open("blue_hydra_rssi.log", "r")
 
 #def myFunction():
     #file = open("blue_hydra_rssi.log","r")
@@ -49,8 +50,6 @@ with open(r"blue_hydra_rssi.log", "r") as file:
             break
 
 
-
-
 #-------------------------------------
 
     #searches if the input is present in the text
@@ -61,10 +60,17 @@ with open(r"blue_hydra_rssi.log", "r") as file:
     else:
         print("SEARCH NOT FOUND!")
     
-    #file.close()
+    file.close()
     #repeat=false
 
 
+if __name__ == '__main__':
+    while(True):
+        x = input("Enter Target MAC adress: ") #input is taken here vs inside the function so it is not repeatedly asking for input
+        output = search(x)
+        f = open("blue_hydra_search.log",'a')
+        f.write(output)
+        f.close()
 
 
     
