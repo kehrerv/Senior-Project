@@ -3,55 +3,23 @@
 #logfile=/home/vnkehrer/Documents/SeniorProject/blue_hydra/blue_hydra_rssi_search.log
 
 
-#stopwatch
-#start=$(date +%s)
-#while true; do
-#    time="$(($(date +%s) - $start))"
-#    printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
-#done
+read -p "Enter MAC address: " MAC
 
-#---------------------------------
-
-start=$(date +%s)
-while true; do
-    time="$(($(date +%s) - $start))"
-    printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
-done
-echo "Starting search..."
+echo "MAC: $MAC"
 
 #loop search.py until target is found
-while 1; do
+while true; do
 
 	echo "loop"
-	#if python search.py | grep EE:82:30:92:BC:64  >> blue_hydra_rssi_search.log 2>&1; then
-	grep EE:82:30:92:BC:64  >> blue_hydra_rssi_search.log 2>&1; then
-	#	echo "output found!"
-		date +"%D %r" #gives local time
-		break
-	else
-		echo "Searching..."
-	fi
+	
+    python3 search.py $MAC #passes to python file
 
-	#echo "Searching..."
+    STATUS=`cat .found.txt`
+    if [ "$STATUS" == "true" ]; then
+        break
+    fi
+
+
+    date +"%D %r" #gives local time
 	sleep 2 #sleep 2 seconds before searching again
 done
-
-"""
-
-while :
-do
-
-	date +"%D %r" #>> blue_hydra_rssi_search.log #gives local time
-	echo "loop"
-	#send the output of the pyhon program to the logfile and put the error output in the logfile too
-	python search.py >> blue_hydra_rssi_search.log 2>&1
-	#77:54:7F:C1:1B:32
-	
-	sleep 2
-
-done
-"""
-
-
-
-
