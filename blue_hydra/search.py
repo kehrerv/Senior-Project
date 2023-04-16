@@ -6,16 +6,14 @@ x = sys.argv[1] #recieves the input mac address from the rerun script
 print("testing: ", x)
 #opens file to read "r"
 with open(r"blue_hydra_rssi.log", "r") as file:
-    with open (".found.txt", "w") as f:
-
-        check = False
+    with open (".found.txt", "w") as f: #this is where the "true" or "false" will be written for rerun.sh to reference for looping search.py
 
 
 
         #reads all the content from the file
         
         content = file.read() #reads from a particular line if using []
-        characterNum = len(content)
+        characterNum = len(content) #counts length in characters
             
 
         #line counter

@@ -3,9 +3,9 @@
 #logfile=/home/vnkehrer/Documents/SeniorProject/blue_hydra/blue_hydra_rssi_search.log
 
 
-read -p "Enter MAC address: " MAC
+read -p "Enter MAC address: " MAC #asks user for an input aka the target mac address
 
-echo "MAC: $MAC"
+echo "MAC: $MAC" 
 
 #loop search.py until target is found
 while true; do
