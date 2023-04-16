@@ -3,23 +3,29 @@
 #logfile=/home/vnkehrer/Documents/SeniorProject/blue_hydra/blue_hydra_rssi_search.log
 
 
-
 #stopwatch
+#start=$(date +%s)
+#while true; do
+#    time="$(($(date +%s) - $start))"
+#    printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
+#done
+
+#---------------------------------
+
 start=$(date +%s)
 while true; do
     time="$(($(date +%s) - $start))"
     printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
 done
-#---------------------------------
-
 echo "Starting search..."
 
 #loop search.py until target is found
-while true; do
+while 1; do
 
 	echo "loop"
-	if python search.py | grep EE:82:30:92:BC:64  >> blue_hydra_rssi_search.log 2>&1; then
-		echo "output found!"
+	#if python search.py | grep EE:82:30:92:BC:64  >> blue_hydra_rssi_search.log 2>&1; then
+	grep EE:82:30:92:BC:64  >> blue_hydra_rssi_search.log 2>&1; then
+	#	echo "output found!"
 		date +"%D %r" #gives local time
 		break
 	else
@@ -30,7 +36,7 @@ while true; do
 	sleep 2 #sleep 2 seconds before searching again
 done
 
-:'
+"""
 
 while :
 do
@@ -44,7 +50,7 @@ do
 	sleep 2
 
 done
-'
+"""
 
 
 

@@ -2,16 +2,14 @@
 import os
 
 
+
 #while(repeat==true):
 x = input("Enter Target MAC adress: ")
+
 #opens file to read "r"
 with open(r"blue_hydra_rssi.log", "r") as file:
 
-#def myFunction():
-    #file = open("blue_hydra_rssi.log","r")
-
-    #user enters the target's mac address here
-#    x = input("Enter target Mac address: ")
+    check = False
 
 
 
@@ -46,6 +44,7 @@ with open(r"blue_hydra_rssi.log", "r") as file:
     for b in data_into_list:
         if x in b:
             print("MAC Address: ",word[2]) #mac address is stored at index 2
+            check = True
             break
 
 
@@ -55,12 +54,13 @@ with open(r"blue_hydra_rssi.log", "r") as file:
 
     #searches if the input is present in the text
     if x in content:
-        print("SEARCH FOUND!") 
-        
-
+        print("SEARCH FOUND!")
+        return check
     else:
         print("SEARCH NOT FOUND!")
     
+
+    return check
     #file.close()
     #repeat=false
 
